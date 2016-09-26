@@ -16,6 +16,6 @@ public class STPlayers {
     }
 
     public String toString(){
-        return "playerID = " + playerID;
+        return playerID;
     }
 }

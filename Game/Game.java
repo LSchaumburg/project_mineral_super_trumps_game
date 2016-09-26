@@ -14,41 +14,52 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Mineral Super Trumps!" + "\n1. Start New Game" + "\n2. Exit");
         userSelection = scanner.nextInt();
+//        userSelection = 1;
 
-//        use switch apparently
-        if (userSelection == 1) {
-            startNewGame();
+        switch (userSelection) {
+            case 1: startNewGame();
+                break;
+            case 2: gameExit();
+                break;
+            }
         }
-        else {
-            System.out.println("Thanks for playing");
-        }
-    }
 
-    private static void startNewGame() {
+    public static void startNewGame() {
 
         int numPlayers = getNumPlayers();
         STGame game = new STGame(numPlayers);
 
         game.selectDealer();
+        System.out.println("");
+        System.out.println("Players:");
         game.dealCards();
-        game.selectHumanPlayer();
-        game.getHumanPlayer();
+        game.selectHumPlayer();
 
-        STPlayers humanPlayer = game.getHumanPlayer();
-        showPlayer(humanPlayer);
+//        STPlayers humanPlayer = game.selectHumPlayer();
+//        showPlayer(humanPlayer);
+//        beginRounds();
+
 
     }
 
-    private static void showPlayer(STPlayers humanPlayer) {
-        System.out.println("Player One = " + humanPlayer);
-    }
+//    private static void showPlayer(STPlayers humanPlayer) {
+//        System.out.println("Player One: " + humanPlayer);
+//    }
 
-    public static int getNumPlayers() {
+    private static int getNumPlayers() {
         int numPlayers;
         Scanner numPlayerScan = new Scanner(System.in);
+        System.out.println("");
         System.out.println("How many players are in this game? ");
         numPlayers = numPlayerScan.nextInt();
+//        numPlayers = 3;
+        System.out.println("");
+        System.out.println("There are " + numPlayers + " players in this game.");
         return numPlayers;
+    }
+
+    private static void gameExit() {
+        System.out.println("Thanks for playing!");
     }
 }
 

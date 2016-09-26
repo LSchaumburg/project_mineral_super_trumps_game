@@ -9,19 +9,19 @@ public class STDeck {
     private ArrayList<STCard> cards;
 
     public STDeck(){
-        cards = new ArrayList<STCard>();
+        cards = new ArrayList<>();
 
         for (int i = 0; i < NUMCARDS; i++){
             cards.add(new STCard(i));
         }
     }
-    public ArrayList<STCard> dealHandCards(int numCards) {
-        ArrayList<STCard> result = new ArrayList<STCard>();
-        for (int i = 0; i < numCards; i++) {
-            int index = new Random().nextInt(NUMCARDS);
+    public ArrayList<STCard> dealHandCards(int numCardsDealt) {
+        ArrayList<STCard> result = new ArrayList<>();
+        for (int i = 0; i < numCardsDealt; i++) {
+            int index = new Random().nextInt(cards.size());
             STCard card = cards.remove(index);
             result.add(card);
-            System.out.println("Card: " + card);
+//            System.out.println("Card" + card);
         }
         return result;
     }
